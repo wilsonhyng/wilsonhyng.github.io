@@ -419,3 +419,6 @@ p.paragraph {
 .img-circle {
     border-radius: 50%;
 }
+a {
+	color: black;
+}
