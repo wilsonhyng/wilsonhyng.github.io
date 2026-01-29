@@ -1,189 +1,243 @@
-<html>
-  <head>
-    <title>
-      Wilson Ng
-    </title>
-    <meta charSet="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/devices.css">
-    <link href="favicon.ico" rel="icon" type="image/x-icon" />
-  </head>
-  <body>
-    <header class="header">
-      <div class="container-lrg">
-        <div class="col-12 spread">
-          <div>
-            <a class="logo" href="http://wilsonhyng.com" style="text-decoration: none">
-              Wilson Ng
-            </a>
-          </div>
-          <div>
-            <a class="nav-link" href="https://github.com/wilsonhyng" target="blank">
-              GitHub
-            </a>
-            <a class="nav-link" href="https://www.linkedin.com/in/wilsonhyng/" target="blank">
-              LinkedIn
-            </a>
-            <a class="nav-link" href="WilsonNgResume.pdf" target="blank">
-              Resume
-            </a>
-          </div>
-        </div>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wilson Ng</title>
+
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0b0c10;
+      --fg: #f5f7ff;
+      --muted: rgba(245, 247, 255, .75);
+
+      /* ticker sizing + timing */
+      --step: 2.3rem;
+      --window: 2.5rem;
+      --duration: 10s;
+    }
+
+    html {
+      font-size: 22px;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(1100px 700px at 30% 20%, rgba(255, 255, 255, .08), transparent 55%),
+        var(--bg);
+      color: var(--fg);
+      font: 500 18px/1.35 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    .wrap {
+      width: min(900px, calc(100vw - 48px));
+      padding: 72px 24px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 4vw, 56px);
+      letter-spacing: -0.9px;
+      margin-bottom: 18px;
+    }
+
+    .lede {
+      max-width: 60ch;
+      font-size: clamp(18px, 2.1vw, 24px);
+      margin-bottom: 28px;
+    }
+
+    /* --- sentence block --- */
+    .line {
+      display: flex;
+      flex-direction: column;
+      /* 👈 force clean line break */
+      gap: 6px;
+      font-size: clamp(18px, 2.1vw, 26px);
+    }
+
+    .lead {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .label {
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* ---- TICKER ---- */
+    .ticker {
+      display: inline-flex;
+      flex-direction: column;
+      height: var(--window);
+      overflow: hidden;
+      padding: 0 .65em;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .10);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, .10) inset,
+        0 14px 40px rgba(0, 0, 0, .25);
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      animation: moveUp var(--duration) linear infinite;
+      will-change: transform;
+    }
+
+    .role {
+      height: var(--step);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      white-space: nowrap;
+      font-weight: 650;
+      line-height: 1;
+    }
+
+    /* Configured for 5 roles, longer pause on first */
+    @keyframes moveUp {
+      0% {
+        transform: translateY(0);
+      }
+
+      12% {
+        transform: translateY(0);
+      }
+
+      22% {
+        transform: translateY(calc(-1 * var(--step)));
+      }
+
+      32% {
+        transform: translateY(calc(-1 * var(--step)));
+      }
+
+      42% {
+        transform: translateY(calc(-2 * var(--step)));
+      }
+
+      52% {
+        transform: translateY(calc(-2 * var(--step)));
+      }
+
+      62% {
+        transform: translateY(calc(-3 * var(--step)));
+      }
+
+      72% {
+        transform: translateY(calc(-3 * var(--step)));
+      }
+
+      82% {
+        transform: translateY(calc(-4 * var(--step)));
+      }
+
+      95% {
+        transform: translateY(calc(-4 * var(--step)));
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .tail {
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    /* --- meta pills --- */
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 36px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: .55em .8em;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .08);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, .10) inset;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .pill a {
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .pill a:hover {
+      text-decoration: underline;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .stack {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <h1>Wilson Ng</h1>
+
+    <p class="lede">
+      I build systems — technical and operational — that make complicated things feel calm and trackable.
+    </p>
+
+    <div class="line">
+      <div class="lead">
+        <span class="label">Wilson is a</span>
+
+        <span class="ticker" aria-label="Rotating roles">
+          <span class="stack">
+            <span class="role">Trust Asset Manager</span>
+            <span class="role">Real Estate Agent</span>
+            <span class="role">Software Engineer</span>
+            <span class="role">Systems Builder</span>
+            <span class="role">Educator</span>
+          </span>
+        </span>
       </div>
-      <div class="container-lrg flex">
-        <div class="col-6 centervertical">
-          <h1 class="heading">
-          </h1>
-          <h2 class="paragraph1">
-            Wilson is a Full Stack Software Engineer born & raised in the Bay Area. 
-            <br>
-            <br>
-            Third child of three boys; his parents hoped for a girl.
-            <br>
-            His father was a carpenter and is disappointed in him, not unlike Jesus. His mother wants grandchildren.
-            <br>
-            <br>
-          </h2>
-        </div>
-          <div class="col-6">
-            <br>
-            <br>
-            <br>
-            <h2 class="paragraph">
-            Passionate for pancakes and experienced across the stack, primarily of the Javascript variety. He is an empathetic engineer and enjoys working collaboratively to solve problems and produce work greater than the sum of the parts. An eye for design and clean, sexy code. 
-            <br>
-            <br>
-            Outside of work, Wilson regularly wins ping pong tournaments with his non dominant hand, hits rank 20 in Hearthstone, and breaks ankles on the blacktop. He cares deeply about <a href="http://www.loveneverfailsus.com" target="blank">anti-trafficking</a> and being involved in his <a href="http://oaklandyouthaspire.org/" target="blank">community</a>.
-            </h2>
-            <div class="ctas center">
-            <a class="ctas-button" href="mailto:wilsonhyng@gmail.com">Say hello</a>
-          </div>
-        </div>
-      </div>
-    </header>
-    <div class="feature2">
-      <div class="container-lrg flex">
-        <div class="col-6">
-          <h3 class="subheading">
-            <a class="nav-link" href="letus.html">
-              <h3 class="subheading">LetUs</h3>
-            </a>
-          </h3>
-          <a href="https://github.com/LegendaryLettuce/LetUs" target="blank">                      
-            <img src="img/github.svg" width="5%">
-          </a>
-          <p class="paragraph">
-            Mobile-first web application for live event planning with friends.
-            <br>
-            Built with React, Redux, Onsen UI, Express, MongoDB, Socket.io, Webpack, and Facebook OAuth.
-          </p>
-          <br>
-          <a href="letus.html">                      
-            <img src="img/letus_small1.png" width="100%">
-          </a>
-        </div>
-        <div class="col-6">
-          <h3 class="subheading">
-            Ambitually
-          </h3>
-          <a href="http://www.github.com/wilsonhyng/Ambitually" target="blank">                      
-            <img src="img/github.svg" width="5%">
-          </a>
-          <p class="paragraph">
-            Habit tracking application with geo-location based check-in.
-            <br>
-            Built with React, Redux, Material UI, Express, MongoDB, Webpack, and Google OAuth 2.0. 
-          <br>
-          <img src="img/ambits_small.png" width="100%">
-          </p>
-        </div>
+
+      <div class="tail">
+        with a focus on principled, sustainable management of a family real-estate trust.
       </div>
     </div>
-    <div class="feature2">
-      <div class="container-lrg flex">
-        <div class="col-6">
-          <h3 class="subheading">
-            TripPin
-          </h3>
-          <a href="http://www.github.com/wilsonhyng/TripPin" target="blank">                      
-            <img src="img/github.svg" width="5%">
-          </a>
-          <p class="paragraph">
-            Visualize trips by attaching photos and journals to pins on a map.
-            <br>
-            Built with Angular 1, Express, MongoDB, Google Maps API, and Google OAuth 2.0.
-          </p>
-          <br>
-          <img src="img/trippins_small.png" width="100%">
-        </div>
-        <div class="col-6">
-          <h3 class="subheading">
-            HypeFriends
-          </h3>
-          <a href="http://www.github.com/wilsonhyng/hypefriends" target="blank">                      
-            <img src="img/github.svg" width="5%">
-          </a>
-          <p class="paragraph">
-            Discover your friends’ favorite songs.
-            <br>
-            Built with React, Express, MySQL, Webpack, and HypeM API.
-          <br>
-          <img src="img/hypefriends_small.png" width="100%">
-          </p>
-        </div>
-      </div>
+
+    <div class="meta">
+      <span class="pill">SF Bay Area</span>
+      <span class="pill"><a href="mailto:property@wilsonhyng.com">Email</a></span>
+      <span class="pill"><a href="https://www.linkedin.com/in/wilsonhyng/" target="_blank"
+          rel="noreferrer">LinkedIn</a></span>
+      <span class="pill"><a href="https://github.com/wilsonhyng/" target="_blank" rel="noreferrer">GitHub</a></span>
     </div>
-    <div class="socialproof">
-      <div class="container-sml text-center">
-        <div class="col-12">
-          <h4 class="heading">
-            What I do
-          </h4>
-        </div>
-      </div>
-      <div class="container-lrg">
-        <div class="logos flex">
-          <img class="col-3" src="img/react.svg">
-          <img class="col-3" src="img/angularjs.svg">
-          <img class="col-3" src="img/nodejs.svg">
-          <img class="col-3" src="img/socketio.svg">
-          <img class="col-3" src="img/mongodb.svg">
-          <img class="col-3" src="img/mysql.svg">
-          <img class="col-3" src="img/docker.svg">
-          <img class="col-3" src="img/circleci.svg">
-        </div>
-      </div>
-    </div>
-    <div class="footer">
-      <div class="container-sml text-center">
-        <div class="col-12">
-          <h5 class="heading">
-            Forreal, Say Hello!
-          </h5>
-          <br>
-          <br>
-          <img src="https://avatars1.githubusercontent.com/u/11743852?v=3&s=460" width="25%" style="border-radius: 50%">
-        <div class="ctas">
-            <a class="ctas-button" href="mailto:wilsonhyng@gmail.com">Hi, Friend</a>
-          </div>
-        </div>
-      </div>
-      <div class="container-lrg footer-nav">
-        <div class="col-12 right">
-          <div>
-            <a class="nav-link" href="https://github.com/wilsonhyng" target="blank">
-              GitHub
-            </a>
-            <a class="nav-link" href="https://www.linkedin.com/in/wilsonhyng/" target="blank">
-              LinkedIn
-            </a>
-            <a class="nav-link" href="WilsonNgResume.pdf" target="blank">
-              Resume
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
+  </main>
+</body>
+
 </html>
